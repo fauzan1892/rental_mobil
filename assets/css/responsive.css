@@ -1,0 +1,101 @@
+/*---------- MEDIA 991px ----------*/
+@media (max-width: 991px) {
+  html,body{
+    overflow-x:hidden;
+  }
+  #container{
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-x:hidden;
+  }
+
+	#containerblog{
+	  padding-right: 0pc;
+	}
+
+  .card-height{
+    height: 100%;
+  }
+  .flotauthor{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .flbawah{
+    margin-top:0.5pc;
+  }
+  .img-responsive{
+      max-width: 100%;  
+      height: auto;
+      padding-bottom:5px;
+      text-align:center;
+  }
+}
+
+
+/*---------- MEDIA 768px ----------*/
+@media  (max-width: 768px) {
+  html,body{
+    overflow-x:hidden;
+  }
+  #container{
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-x:hidden;
+  }
+  .card-height{
+    height: 100%;
+  }
+	#containerblog{
+	  padding-right: 0pc;
+	}
+  .flotauthor{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .flbawah{
+    margin-top:0.5pc;
+  }
+  .img-responsive{
+      max-width: 100%;
+      height: auto;
+      padding-bottom:5px;
+      text-align:center;
+  }
+}
+/*---------- MEDIA 480px ----------*/
+@media  (max-width: 480px) {
+  html,body{
+    overflow-x:hidden;
+  }
+  #container{
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-x:hidden;
+  }
+  .card-height{
+    height: 100%;
+  }
+	#containerblog{
+	  padding-right: 0pc;
+	}
+  .flotauthor{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .flbawah{
+    margin-top:0.5pc;
+  }
+  .text-secondary{
+    font-size: 10px;
+
+  }
+  .img-responsive{
+      max-width: 100%;
+      height: auto;
+      padding-bottom:5px;
+      text-align:center;
+  }
+  #artikel-author{
+    display:none;
+  }
+}
