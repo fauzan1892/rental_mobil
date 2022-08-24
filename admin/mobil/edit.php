@@ -42,7 +42,7 @@
         </div>
         <div class="card-body">
             <div class="container">
-                <form method="post" action="proses.php?aksi=edit&id=<?= $id;?>&gambar=<?= $hasil['gambar'];?>" enctype="multipart/form-data">
+                <form method="post" action="proses.php?aksi=edit&id=<?= $id;?>" enctype="multipart/form-data">
                     <div class="row">
 
                         <div class="col-sm-6">
@@ -89,6 +89,7 @@
                                 <label class="col-sm-3">Penampakan</label>
                                 <img src="../../assets/image/<?php echo $hasil['gambar'];?>" class="img-fluid" style="width:200px;">                               
                             </div>
+                            <input type="hidden" value="<?= $hasil['gambar'];?>" name="gambar_cek">
                         </div>
                     </div>
                     <hr>
