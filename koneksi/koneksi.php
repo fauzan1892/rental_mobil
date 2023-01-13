@@ -18,7 +18,7 @@
     $koneksi = new PDO("mysql:host=localhost;dbname=codekop_free_rental_mobil", $user, $pass);
 
     global $url;
-    $url = "http://localhost/open_source/rental_mobil/";
+    $url = "http://localhost/rental_mobil-master/";
 
     $sql_web = "SELECT * FROM infoweb WHERE id = 1";
     $row_web = $koneksi->prepare($sql_web);

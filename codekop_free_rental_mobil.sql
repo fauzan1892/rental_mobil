@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 24, 2022 at 08:36 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.22
+-- Host: 127.0.0.1
+-- Generation Time: Jan 13, 2023 at 07:59 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -118,7 +118,7 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`id_mobil`, `no_plat`, `merk`, `harga`, `deskripsi`, `status`, `gambar`) VALUES
-(5, 'N34234', 'Avanza', 200000, 'Apa aja', 'Tidak Tersedia', 'a02dae3a-28ca-49ce-8596-2f165188872f_169.jpeg'),
+(5, 'N34234', 'Avanza', 200000, 'Apa aja', 'Tidak Tersedia', '1673593078toyota-all-new-avanza-2015-tangkapan-layar_169.jpeg'),
 (6, 'N 1232 BKT', 'New Xenia', 500000, 'Baru', 'Tersedia', 'all-new-xenia-exterior-tampak-perspektif-depan---varian-1.5r-ads.jpg');
 
 -- --------------------------------------------------------
