@@ -22,23 +22,28 @@ if (empty($_SESSION['USER'])) {
 if ($_GET['aksi'] == 'tambah') {
     $dir = '../../assets/image/';
     $tmp_name = $_FILES['gambar']['tmp_name'];
-    $name = time().basename($_FILES['gambar']['name']);
+    $temp = explode(".", $_FILES["gambar"]["name"]);
+    $newfilename = round(microtime(true)) . '.' . end($temp);
+    $target_path = $dir . basename($newfilename);
     $allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png"  );
 
     if ($_FILES['gambar']["error"] > 0) {
-        $output['error']= "Error in File";
+        echo '<script>alert("Error file");history.go(-1)</script>';
+        exit();
     } elseif (!in_array($_FILES['gambar']["type"], $allowedImageType)) {
         echo '<script>alert("You can only upload JPG, PNG and GIF file");window.location="tambah.php"</script>';
+        exit();
     } elseif (round($_FILES['gambar']["size"] / 1024) > 4096) {
         echo '<script>alert("WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB !");window.location="tambah.php"</script>';
+        exit();
     } else {
-        if (move_uploaded_file($tmp_name, $dir.$name)) {
+        if (move_uploaded_file($tmp_name, $target_path)) {
             $data[] = $_POST['no_plat'];
             $data[] = $_POST['merk'];
             $data[] = $_POST['harga'];
             $data[] = $_POST['deskripsi'];
             $data[] = $_POST['status'];
-            $data[] = $name;
+            $data[] = $newfilename;
 
             $sql = "INSERT INTO `mobil`(`no_plat`, `merk`, `harga`, `deskripsi`, `status`, `gambar`) 
                 VALUES (?,?,?,?,?,?)";
@@ -54,7 +59,9 @@ if ($_GET['aksi'] == 'tambah') {
 if ($_GET['aksi'] == 'edit') {
     $dir = '../../assets/image/';
     $tmp_name = $_FILES['gambar']['tmp_name'];
-    $name = time().basename($_FILES['gambar']['name']);
+    $temp = explode(".", $_FILES["gambar"]["name"]);
+    $newfilename = round(microtime(true)) . '.' . end($temp);
+    $target_path = $dir . basename($newfilename);
     $allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png"  );
 
     $gambar = $_POST['gambar_cek'];
@@ -69,18 +76,22 @@ if ($_GET['aksi'] == 'edit') {
     if ($_FILES['gambar']["size"] > 0) {
         if ($_FILES['gambar']["error"] > 0) {
             echo '<script>alert("Error file");history.go(-1)</script>';
+            exit();
         } elseif (!in_array($_FILES['gambar']["type"], $allowedImageType)) {
             echo '<script>alert("You can only upload JPG, PNG and GIF file");history.go(-1)</script>';
+            exit();
         } elseif (round($_FILES['gambar']["size"] / 1024) > 4096) {
             echo '<script>alert("WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB !");history.go(-1)</script>';
+            exit();
         } else {
-            if (move_uploaded_file($tmp_name, $dir.$name)) {
+            if (move_uploaded_file($tmp_name, $target_path)) {
                 if (file_exists('../../assets/image/'.$gambar)) {
                     unlink('../../assets/image/'.$gambar);
                 }
-                $data[] = $name;
+                $data[] = $newfilename;
             } else {
                 echo '<script>alert("Error file");history.go(-1)</script>';
+                exit();
             }
         }
     } else {
